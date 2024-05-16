@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.8.0/addons/p5.sound.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
+
+
+  <!-- <link rel="stylesheet" href="/css/style.css"> -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+  <link type="text/css" rel="stylesheet" href="css/main.css">
+  <link type="text/css" rel="stylesheet" href="css/icons.css">
+  <link type="text/css" rel="stylesheet" href="css/zine_lib.css">
+  <link type="text/css" rel="stylesheet" href="css/charts.css">
+  <link type="text/css" rel="stylesheet" href="libraries/jquery-ui-1.13.2.custom/jquery-ui.structure.min.css">
+
+  <script src="js/98.js"></script>
+  <script src="js/stickers.js"></script>
+  <script src="js/textpad.js"></script>
+  <script src="js/data-processing.js"></script>
+  <!-- <script src="/js/sketch.js"></script> -->
+  <!-- <script src="js/sketch2.js"></script> -->
+  <script src="js/sketch.js"></script>
+
+  <link id="favicon" rel="icon"
+    href="https://cdn.glitch.global/1f22ee04-8ced-45e6-a430-76c0e3760c2d/board%20cover.jpg?v=1712322624364"
+    type="image/x-icon">
+
+  <title>jess.os</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.min.js"></script>
+  <script>
+    // jQuery fuctions only here
+    let dateOutput = "";
+    let month = "";
+    let day = "";
+
+    $(function () {
+      // This gets the date and stores it in a variable. This will probably be used in several places.
+      let d = new Date();
+
+      month = d.getMonth() + 1;
+      day = d.getDate();
+
+      dateOutput = (month < 10 ? '0' : '') + month + '/' +
+        (day < 10 ? '0' : '') + day + "/" + d.getFullYear();
+
+      // This just returns the date and other things so that I can grab it from other places in the page
+      function getCurrentDate() {
+        return dateOutput;
+      }
+
+    },)
+
+  </script>
+</head>
+
+<body onload="startTime()">
+  <div id="stickersCanvas"></div>
+  <div id="desktop">
+    <!------  Desktop icons are here ------->
+    <div id="desktopIcons">
+      <div>
+        <p><a href="#" onclick="showWindow('charts')"><img src="img/icons/w98-folder-medium.png" alt="charts"><br>
+            <span class="iconLabel">charts</span></a></p>
+
+        <p><a href="#" onclick="showWindow('zine-library')"><img src="img/icons/w98-message-medium.png"
+              alt="zine underscore lib folder"><br>
+            <span class="iconLabel">zine_lib</a></span></p>
+
+        <p><a href="#" onclick="showWindow('creditsTXT')"><img src="img/icons/w98-message-medium.png"
+              alt="Credits.txt"><br>
+            <span class="iconLabel">Credits.txt</a></span></p>
+
+        <!-- <p><a href="#" onclick="showWindow('settings')"><img src="img/icons/icon_settings_2x.png" alt="Settings"><br>
+            <span class="iconLabel">Settings</span></a></p> -->
+
+        <p><a href="#" onclick="showWindow('textpad')"><img src="img/icons/w98-notepad-medium.png" alt="Textpad"><br>
+            <span class="iconLabel">Textpad</span></a></p>
+        <p><a href="#" onclick="showWindow('welcomeTXT')"><img src="img/icons/w98-message-medium.png"
+              alt="welcomeTXT"><br>
+            <span class="iconLabel">welcomeTXT</span></a></p>
+      </div>
+      <div>
+        <!-- <p><a href="#" id="jspaint-link" onclick="showWindow('jspaint')"><img src="img/icons/icon_jspaint_2x.png"
+              alt="JSPaint"><br>
+            <span class="iconLabel">JSPaint</span></a></p> -->
+        <p><a href="#" id="stickers-link" onclick="showWindow('stickers')"><img src="img/icons/w98-utopia_smiley.png"
+              alt="Stickers"><br>
+            <span class="iconLabel">Stickers</span></a></p>
+      </div>
+    </div>
+  </div>
+  <ul id="beginMenu" class="beginMenuLinks" style="display: none">
+    <li>
+      <div><img src="img/icons/icon_textpad_1x.png" alt="icon"> <a href="#" onclick="showWindow('textpad')">Textpad</a>
+      </div>
+    </li>
+    <li>
+      <div><img src="img/icons/icon_folder_1x.png" alt="icon"> <a href="#"
+          onclick="showWindow('zine-library')">zine_lib</a></div>
+    </li>
+    <li>
+      <div><img src="img/icons/icon_folder_1x.png" alt="icon"> <a href="#"
+          onclick="showWindow('links')">link_garden.txt</a></div>
+    </li>
+    <li>
+      <div><img src="img/icons/icon_folder_1x.png" alt="icon"> <a href="#" onclick="showWindow('charts')">charts</a>
+      </div>
+    </li>
+  </ul>
+  <!-- this is popup divs (windows) start start -->
+  <div id="popups">
+    <div class="window draggable off" id="welcomeTXT">
+      <div class="menuBar">
+        <span id="introWindow" class="windowTitle">Welcome.txt</span>
+        <a href="#" class="minimize">_</a> | <a href="#" class="close">X</a>
+      </div>
+
+      <div class="content" id="welcomeTXTcontent">
+        <h2>hello earthling</h2>
+
+        <p>
+          <img src="img/IMG_0015.JPG" alt="" class="inline">
+          what you'll find here is the result of a 10 month study
+          of web development and bitter fight for my soul. as a person
+          whose brain has always gone left when others seem to go right,
+          i fell into every rabbit hole i came across.
+          <br>
+          <br>finally i made it to this imperfect place!
+          <br>
+          <br>first, i want to thank <a href="https://www.thefrugalgamer.net" target="_blank">FrugalGamer</a>,
+          the creator behind <a href="https://www.thefrugalgamer.net/programming/FrugalOS/"
+            target="_blank">FrugalOS.</a>
+          this iteration of the desktop aesthetic was forked from their repository,
+          which can be found <a href="https://github.com/FrugalGamer/FrugalOS">
+            <img src="img/icons/icon_github_16.png" alt="icon"> here.</a>
+          <br>
+          <br>i also want to thank all of the creatives, radicals, and people
+          whose brain goes left when everyone else's goes right.
+          you're my audience and this carnival ride is for you.
+        </p>
+
+        <p>other sources of desktop inspiration:<br>
+          <li><a href="https://github.com/syxanash/awesome-web-desktops" target="_blank">Awesome Web Desktops</a>
+        </p>
+        </li>
+        <li><a href="https://simone.computer/#/webdesktops" target="_blank">simone's list is probably my favorite</a>
+        </li>
+        <br>
+        <br>
+        <p>Links<br>
+
+
+          <li><a href="mailto:jfeltner@umd.edu"><img src="img/icons/icon_email_16.png" alt="icon"> send me an email</a>
+          </li>
+          <li><a href="https://excessive-sneaky-fairy.glitch.me/"><img src="img/arrowRight.png" alt="icon"> silly link
+              library </a></li>
+
+        </p>
+      </div>
+    </div>
+
+    <div class="window draggable off" id="textpad">
+      <div class="menuBar">
+        <span id="computerWindow" class="windowTitle">Textpad 0.1</span>
+        <a href="#" class="minimize">_</a> | <a href="#" class="close">X</a>
+      </div>
+
+      <div class="content">
+        <div class="progMenu">
+          <ul class="menu">
+            <li><a href="#">File</a>
+              <ul>
+                <li><a href="#" id="textpad-save-menu">Save</a></li>
+                <li><a href="#" id="textpad-open-menu">Open...</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Edit</a></li>
+            <li><a href="#" id="textpad-about-menu">About</a></li>
+          </ul>
+        </div>
+        <div class="uiButtons">
+          <input type="button" value="H1" id="H1" class="markdown"> <input type="button" value="H2" id="H2"
+            class="markdown"> <input type="button" value="H3" id="H3" class="markdown"> <input type="button"
+            value="Bold" id="bold" class="markdown"> <input type="button" value="Italic" id="italic" class="markdown">
+          <input type="button" value="hr" id="hr" class="markdown">
+        </div>
+        <textarea id="textpad_wa"></textarea>
+        <div class="uiButtons">
+          <input type="button" value="Clear" id="textpad-clear"> <input type="button" value="Save" id="textpad-save">
+          <input type="file" value="Open..." id="textpad-open" onchange="loadTxtFile()" style="display: none;">
+        </div>
+      </div>
+
+      <div class="off" id="aboutDialogue" title="About Textpad">
+        <p>TextPad is a simple plain text and markdown editor that I've put together as a programming learning tool. You
+          can currently use it to create, open, and edit plain text files.</p>
+      </div>
+
+      <div class="off" id="modalDialogue" title="Warning!">
+        <p>Are you sure? Anything that has not been saved will be lost!</p>
+
+        <p><input type="button" value="No" class="dialogueBtn"> <input type="button" value="Yes" id="textpad_ybtn"
+            class="dialogueBtn"></p>
+      </div>
+      <div class="off" id="aboutDialogue" title="About Textpad">
+        <p>TextPad is a simple plain text and markdown editor that I've put together as a programming learning tool. You
+          can currently use it to create, open, and edit plain text files.</p>
+      </div>
+
+      <div class="off" id="modalDialogue" title="Warning!">
+        <p>Are you sure? Anything that has not been saved will be lost!</p>
+
+        <p>
+          <input type="button" value="No" class="dialogueBtn">
+          <input type="button" value="Yes" id="textpad_ybtn" class="dialogueBtn">
+        </p>
+      </div>
+    </div>
+  <ul id="beginMenu" class="beginMenuLinks" style="display: none">
+    <li>
+      <div><img src="img/icons/icon_textpad_1x.png" alt="icon"> <a href="#" onclick="showWindow('textpad')">Textpad</a>
+      </div>
+    </li>
+    <li>
+      <div><img src="img/icons/icon_folder_1x.png" alt="icon"> <a href="#"
+          onclick="showWindow('zine-library')">zine_lib</a></div>
+    </li>
+    <li>
+      <div><img src="img/icons/icon_folder_1x.png" alt="icon"> <a href="#"
+          onclick="showWindow('links')">link_garden.txt</a></div>
+    </li>
+    <li>
+      <div><img src="img/icons/icon_folder_1x.png" alt="icon"> <a href="#" onclick="showWindow('charts')">charts</a>
+      </div>
+    </li>
+  </ul>
+  </div>
+
+  <div class="window draggable off" id="zine-library">
+    <div class="menuBar">
+      <span id="computerWindow" class="windowTitle">zine_lib</span>
+      <a href="#" class="minimize">_</a> | <a href="#" class="close">X</a>
+    </div>
+
+    <div class="content">
+      <h1 class="header box">search the zine library</h1>
+      <div id="canvas-container box"></div>
+      <div class="searchContainer">
+        <form class="form box">
+          <div class="prompt input-box">
+            <label for="searchInput"></label>
+            <input name="searchInput" id="searchInput" />
+          </div>
+          <div class="button box">
+            <button class="btn" type="submit" id="searchButton">Search</button>
+          </div>
+        </form>
+      </div>
+      <div class="subjectButton box" id="button-box">
+        <button class="subjectButton" type="submit" id="randomButton">random</button>
+        <button class="subjectButton" data-subject="abolition">abolition</button>
+        <button class="subjectButton" data-subject="mutual aid">mutual aid</button>
+        <button class="subjectButton" data-subject="ecology">ecology</button>
+        <button class="subjectButton" data-subject="diy">diy</button>
+        <button class="subjectButton" data-subject="poetry">poetry</button>
+        <button class="subjectButton" data-subject="comic">comic</button>
+        <button class="subjectButton" data-subject="art">art</button>
+        <button class="subjectButton" data-subject="technology">technology</button>
+        <button class="subjectButton" data-subject="gender">gender</button>
+      </div>
+      <div>
+        <div id="items" class="recs box">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="window draggable off" id="stickers">
+    <div class="menuBar">
+      <span id="epubReaderWindow" class="windowTitle">Stickers</span>
+      <a href="#" class="minimize">_</a> | <a href="#" class="close">X</a>
+    </div>
+
+    <div class="content">
+      <p>Put neat images on your desktop! Why? Because it's fun! Do they do anything? No!</p>
+
+      <div id="stickerImages">
+        <img src="img/sticker_mushroom1.png" alt="mushroom 1"> <img src="img/sticker_mushroom2.png" alt="mushroom 2">
+        <img src="img/sticker_mushroom3.png" alt="mushroom 3"> <img src="img/sticker_butterfly2.png"
+          alt="butterfly 2"><img src="img/sticker_butterfly1.png" alt="butterfly 1"> <img src="img/sticker_beetle2.png"
+          alt="beetle 2"> <img src="img/sticker_beetle1.png" alt="beetle 1">
+      </div>
+    </div>
+  </div>
+
+  <div class="window draggable off" id="charts">
+    <div class="menuBar">
+      <span id="computerWindow" class="windowTitle">charts</span>
+      <a href="#" class="minimize">_</a> | <a href="#" class="close">X</a>
+    </div>
+    <div class="content">
+      <div class="content">
+        <p>
+          <a href="#" onclick="showWindow('subjectchart')">
+            <img src="img/icons/w98-chart-medium.png" alt="charts"><br>
+            <span class="iconLabel">subject chart</span>
+          </a>
+        </p>
+        <p>
+          <a href="#" onclick="showWindow('downloadchart')">
+            <img src="img/icons/w98-chart-medium.png" alt="charts"><br>
+            <span class="iconLabel">download chart</span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="window draggable off" id="subjectchart">
+    <div class="menuBar">
+      <span id="computerWindow" class="windowTitle">subject chart</span>
+      <a href="#" class="minimize">_</a> | <a href="#" class="close">X</a>
+    </div>
+
+    <div class="content">
+      <div id="chart-container">
+        <div id="subject-chart-container"></div>
+      </div>
+    </div>
+  </div>
+  <div class="window draggable off" id="downloadchart">
+    <div class="menuBar">
+      <span class="windowTitle">downloads chart</span>
+      <a href="#" class="minimize">_</a> | <a href="#" class="close">X</a>
+    </div>
+
+    <div class="content">
+      <div id="downloads-chart-container">
+      </div>
+
+    </div>
+  </div>
+  <!-- start/task menu -->
+
+
+  </li>
+  </ul>
+
+  <div id="taskBar">
+    <div id="toggleBegin-Container">
+      <button href="#" class="toggleMenu" id="toggleBegin">
+      </button>
+    </div>
+    <div id="minimizedAppsContainer">
+      <ul id="minimizedApps">
+
+      </ul>
+    </div>
+    <div id="rightTaskbar">
+      <!-- <span id="swClock" toolTip="Swatch time"></span>  -->
+      <span id="rtClock"></span>
+    </div>
+    <script>
+      // javascript functions only here
+
+      //This shows the window you pass to it. I've done this in javascript rather than jQuery because it's
+      // easier in js to pass the ID of the window we want to open, and I wanted this function to be modular
+      function showWindow(div) {
+        document.getElementById(div).style.display = "block";
+        divClass = "." + div;
+        document.getElementById(div).style.zindex = zindex + 1;
+        zindex++;
+
+        // Check if there's a matching element in the taskbar and remove it if there is
+        var classTest = findFirstChildByClass(document.getElementById("minimizedApps"), div);
+        if (classTest != null) {
+          classTest.parentNode.remove();
+        }
+        $("#beginMenu").hide();
+        return false;
+      }
+
+      // This is a function I found on Stackexhange that should pull any child element that matches a selector,
+      // rather than the first descendant of an element. This wouldn't be necessary if I were using jQuery for
+      // everything, but I'm having to fall back to javascript for some of it, so this is necessary.
+      function findFirstChildByClass(element, className) {
+        var foundElement = null, found;
+        function recurse(element, className, found) {
+          for (var i = 0; i < element.childNodes.length && !found; i++) {
+            var el = element.childNodes[i];
+            var classes = el.className != undefined ? el.className.split(" ") : [];
+            for (var j = 0, jl = classes.length; j < jl; j++) {
+              if (classes[j] == className) {
+                found = true;
+                foundElement = element.childNodes[i];
+                break;
+              }
+            }
+            if (found)
+              break;
+            recurse(element.childNodes[i], className, found);
+          }
+        }
+        recurse(element, className, false);
+        return foundElement;
+      }
+
+      // Just a simple function that clears any element with a button press. Can accept classes or IDs
+      function clearDiv(div) {
+        if ($("#" + div))
+          $("#" + div).empty();
+        else
+          $("." + div).empty();
+      }
+
+      // This is for the clock at the bottom. Thank you W3CSchools!
+      function startTime() {
+        const today = new Date();
+        let h = today.getHours();
+        let m = today.getMinutes();
+
+
+        let ampm = h >= 12 ? 'PM' : 'AM';
+        h = h % 12;
+        h = h ? h : 12;
+
+        m = checkTime(m);
+
+        // let swatcht = getSwatchBeat(today, 2);
+
+        // document.getElementById('swClock').innerHTML = swatcht;
+        document.getElementById('rtClock').innerHTML = h + ":" + m + " " + ampm;
+        setTimeout(startTime, 1000);
+      }
+
+      function getSwatchBeat(date, places = 3) {
+        return (((+date + 3.6e6) % 8.64e7) / 8.64e4).toFixed(places);
+      }
+
+      function checkTime(i) {
+        if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+        return i;
+      }
+    </script>
+  </div>
+  <script src="/js/script.js" defer></script>
+  <!-- <script src="/js/truncate.js" defer></script> -->
+
+
+
+
+</body>
+
+</html>

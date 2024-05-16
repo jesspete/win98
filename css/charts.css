@@ -1,0 +1,20 @@
+#subject-chart-container {
+    display: flex;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+    align-self: center;
+    justify-content: center;
+} 
+
+
+#downloads-chart-container {
+    display: flex;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+    align-self: center;
+    justify-content: center;
+} 

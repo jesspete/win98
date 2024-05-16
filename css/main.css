@@ -1,0 +1,737 @@
+/* ======== jQuery overrides go here ======== */
+.ui-dialog-titlebar.ui-widget-header {
+	background: #df5e88 url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") 50% 50% repeat-x;
+}
+
+.ui-widget-header {
+	background: #DF5E88;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+	background: #F6EFA6;
+
+}
+
+.ui-tabs .ui-tabs-nav li {
+	background: #f39bb7;
+}
+
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+	border: 1px solid #2d2d2d;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+	border: 1px solid #2d2d2d;
+}
+
+.ui-widget.ui-widget-content {
+	background-color: #f6efa6;
+	border: 1px solid #2d2d2d;
+}
+
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+	font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+}
+
+.ui-widget {
+	font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+}
+
+.ui-widget input[type=button] {
+	background: #df5e88;
+	border: 1px solid #97133e;
+	border-radius: 8px;
+	font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+	padding: 0.3em;
+	min-width: 75px;
+}
+
+.ui-widget input[type=button]:hover {
+	background-color: #faa5c1;
+}
+
+.ui-accordion .ui-accordion-header {
+	background: #f6ab6c;
+	font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+
+}
+
+.beginMenuLinks .ui-state-active {
+	background: #5edf98;
+	border: 0px;
+	align-items: flex-end;
+	justify-content: flex-start;
+}
+
+/* ======== My styles start here ======== */
+
+
+
+* {
+	font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+	font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+	font-size: 10px;
+}
+
+
+
+body,
+p,
+div {
+	font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+	font-size: 12px;
+	scrollbar-color: #DF5E88 #f6ab6c;
+}
+
+input[type=button],
+input[type=file] {
+	background: #df5e88;
+	border: 1px solid #97133e;
+	border-radius: 8px;
+	font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+	padding: 0.3em;
+	min-width: 75px;
+	box-shadow: inset 1px 1px 0px 0px #f6ab6c, inset -1px -1px 0px 0px #97133e;
+}
+
+input[type=button]:hover {
+	cursor: pointer;
+}
+
+input[type=text] {
+	font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+	font-size: 12px;
+	padding: 0.3em;
+	border-radius: 8px;
+	margin-bottom: 0.5em;
+}
+
+select {
+	font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+	font-size: 1em;
+	background-color: #f6ab6c;
+	padding: 0.4em;
+	border: 1px solid #000;
+	border-radius: 10px;
+}
+
+iframe {
+	border: 0px;
+}
+
+
+details {
+	margin: 1em 0;
+	max-width: 100%;
+	background-color: #fffce0;
+	overflow: auto;
+}
+
+summary {
+	font-weight: bold;
+	border-bottom: 1px solid #97133e;
+	background-color: #f6ab6c;
+	padding: 1em;
+}
+
+details p {
+	padding: 1em;
+}
+
+
+#desktopIcons p {
+	display: flex;
+}
+
+#iconLabel,
+#desktopIcons a span {
+	background-color: #ffffff;
+	text-decoration: none;
+}
+
+html {
+	width: 100%;
+  }
+  
+  body {
+	background-color: #c898fa;
+	padding: 0;
+	margin: 0;
+	font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+	font-size: 12px;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+  }
+  
+  #desktop {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+  }
+  
+  #desktopIcons {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin: 4.5em;
+	min-width: 80vw;
+  }
+
+/* #popups {
+	display: flex;
+	max-height: 90vh;
+	max-width: 100vw;
+	margin: 0;
+	padding: 0;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	z-index: 1;
+  } */
+
+div.window {
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+	box-shadow: 1px 1px 0px 0px #a02a50, -1px -1px 0px 0px #a02a50, 2px 2px 5px 5px rgb(31, 19, 32, 0.3);
+
+}
+
+div.content {
+	background-color: #f6efa6;
+	padding: 1em;
+	flex-grow: 1;
+	overflow-y: auto;
+	flex-direction: column;
+	list-style-type: none;
+}
+
+.window, .content {
+	overflow: auto;
+	max-height: calc(100% - 30px); /* Adjust the height based on the window's title bar height */
+	flex-grow: 1;
+	padding: 0;
+	min-height: 0;
+}
+
+/* .window.off {
+	display: none;
+} */
+
+div.menuBar {
+	border-bottom: 1px solid #353535;
+	background-color: #df5e88;
+	padding: 1em;
+	overflow: hidden;
+	box-shadow: inset 1px 1px 0px 0px #f6ab6c, inset -1px -1px 0px 0px #97133e;
+	display: flex;
+	flex-grow: 1;
+	max-height: 8px;
+
+}
+
+div.menuBar span {
+	display: flex;
+	flex-grow: 1;
+	text-align: center;
+	width: calc(100% - 70px);
+	font-weight: bold;
+}
+
+div.menuBar a {
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 1 em;
+	display: inline-block;
+}
+
+div.menuBar a.minimize {
+	width: 15px;
+	height: 15px;
+}
+
+div.menuBar a.close {
+	width: 15px;
+	height: 15px;
+}
+
+
+
+div.navBar {
+	background-color: #f6ab6c;
+	border: 1px solid #353535;
+	padding: 0.5em;
+}
+
+div.navBar .back {
+	font-size: 1.2em;
+	text-decoration: none;
+	color: #353535;
+	background: url("../img/arrowLeft.png") no-repeat left center;
+	padding: 10px 0px 10px 30px;
+}
+
+div.navBar .forward {
+	font-size: 1.2em;
+	text-decoration: none;
+	color: #353535;
+	background: url("../img/arrowRight.png") no-repeat right center;
+	padding: 10px 30px 10px 0px;
+}
+
+
+
+
+.content .folderIcon {
+	text-align: center;
+	width: 80px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+div.content .progMenu {
+	margin-bottom: 0.5em;
+	display: flex;	
+}
+
+.progMenu .menu {
+	padding: 0px;
+	background: none;
+	border: 0px;
+}
+
+.progMenu .menu .ui-menu li {
+	display: flex;
+	padding: 0.5em;
+	border: none;
+}
+
+.progMenu .menu li,
+.progMenu .menu li li {
+	width: auto;
+	display: flex;
+	border: none;
+}
+
+/* .progMenu .menu li a {
+} */
+
+.progMenu .menu li:hover a {
+	border: 0;
+	
+}
+
+/* #calendar {
+	background-color: #df5e88;
+	position: absolute;
+	bottom: 3.5em;
+	right: 0;
+	padding: 0.5em;
+	border: 1px solid #353535;
+}
+
+#calendar table td {
+	padding: 2px;
+	text-align: center;
+}
+
+.calendar-title {
+	font-weight: bold;
+	background-color: #cf3a6a;
+}
+
+#calendar thead {
+	background-color: #cf3a6a;
+}
+
+.day.today {
+	background-color: #f6ab6c;
+}
+
+.pad {
+	background-color: #ed7ea2;
+} */
+
+/* #taskBar {
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #855edf;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 28px;
+	max-height: 60px;
+	outline: 1px solid #c5c1cf;
+	justify-content: space-between;
+
+}*/
+
+#rightTaskbar {
+  display: flex;
+  align-items: center;
+margin-right: 15px;
+margin-left: 15px;
+  font-weight: bold;
+  flex-shrink: 0;
+  white-space: nowrap;
+  text-align: center;
+  justify-content: center;
+
+} 
+
+
+#taskBar {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #855edf;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	outline: 1px solid #c5c1cf;
+  }
+  
+  #minimizedAppsContainer {
+	flex-grow: 1;
+	overflow-x: auto;
+	white-space: nowrap;
+	padding: 0px;
+	flex-wrap: wrap;
+	height: 28px;
+	margin-left: 80px;
+	align-self: center;
+	align-items: center;
+	justify-content: center;
+	overflow-x: hidden;
+	
+  }
+  
+  #minimizedApps {
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+  }
+  
+  #minimizedApps li {
+	padding: 6px;
+	margin-right: 3px;
+	background-color: #d5b5fc;
+	border: 1px solid #97133e;
+	box-shadow: 1px 1px 0px 0px #a02a50, inset 1px 1px 0px 0px #f8c0d2, inset -1px -1px 0px 0px #528d8f;
+  }
+  
+  #minimizedApps li:hover {
+	background-color: #fcb8ce;
+  }
+  
+  #minimizedApps a {
+	color: #5b132a;
+	text-decoration: none;
+	font-weight: bold;
+  }
+  
+  #minimizedApps a.active {
+	background-color: #df5e88;
+  }  
+
+.minimized-app {
+	flex-grow: 1;
+}
+
+#toggleBegin-Container {
+	display: flex;
+	margin-right: 20px;
+	align-items: flex-end;
+	justify-content: flex-start;
+}
+
+#toggleBegin {
+	background-image: url("../img/Screenshot\ 2024-05-08\ 161642.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: left;
+	width: 60px;
+	height: 28px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+
+  }
+
+  
+
+.beginMenuLinks.ui-widget.ui-widget-content,
+.beginMenuLinks.ui-widget-content ul {
+	
+	background-color: #4f4e83;
+	background: url("../img/beginMenu_bg.jpg") repeat-y;
+	color: #F6EFA6;
+	box-shadow: 2px 2px 5px 5px rgb(31, 19, 32, 0.3);
+	align-items: flex-end;
+	justify-content: flex-start;
+}
+
+.beginMenuLinks.ui-widget-content a {
+	display: flex;
+
+	color: #F6EFA6;
+	align-items: flex-end;
+	justify-content: flex-start;
+}
+
+#beginMenu.ui-menu .ui-menu-item-wrapper {
+	display: flex;
+
+	padding: 0;
+	align-items: flex-end;
+	justify-content: flex-start;
+}
+
+.beginMenuLinks.ui-menu .ui-menu-item-wrapper img,
+.beginMenuLinks.ui-widget-content ul img {
+	vertical-align: middle;
+}
+
+.beginMenuLinks {
+	display: flex;
+	width: 250px;
+	background-color: #df5e88;
+	bottom: 1.4em;
+	padding: 0px;
+	margin: 0px 0px 1em 0px;
+	color: #F6EFA6;
+	align-items: flex-end;
+	justify-content: flex-start;
+}
+
+.beginMenuLinks ul {
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-start;
+
+	margin: 0;
+	padding: 1em 0px 1em 0px;
+}
+
+.beginMenuLinks li {
+	list-style-type: none;
+	padding: 1em;
+	border-bottom: 1px solid #F6EFA6;
+	padding: 1em 0.5em 1em 0.5em;
+	margin: 0;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-start;
+
+}
+
+.beginMenuLinks li:hover {
+	background-color: #df5e88;
+}
+
+.beginMenuLinks a {
+	text-decoration: none;
+}
+
+.beginMenuLinks ul.ui-menu {
+	width: 250px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-start;
+
+}
+
+#minimizedApps {
+	margin: 10 0 0 10px;
+	border: 0px solid #000;
+	height: 100%;
+	width: calc(100% - 400px);
+	margin-top: 0px;
+	display: flex;
+	text-overflow: ellipsis;
+	text-wrap: nowrap;
+
+}
+
+#minimizedApps li {
+	width: 75px;
+	bottom: 10px;
+	display: flex;
+	flex-shrink: 1;
+	border: 1px solid #97133e;
+	
+	padding: 0.5em;
+	margin-right: 12px;
+
+	background-color: #ed84a6;
+	box-shadow: 1px 1px 0px 0px #a02a50, inset 1px 1px 0px 0px #f8c0d2, inset -1px -1px 0px 0px #528d8f;
+
+}
+
+#minimizedApps li:hover {
+	background-color: #fcb8ce;
+}
+
+#minimizedApps a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #5b132a;
+	display: block;
+	height: 100%;
+	width: 100%;
+	text-overflow: ellipsis;
+	text-wrap: nowrap;
+}
+
+#minimizedApps a:visited {
+	color: #5b132a;
+} 
+
+.off {
+	display: none;
+}
+
+.clear {
+	width: 100%;
+	clear: both;
+	display: flex;
+	flex-shrink: 1;
+	flex-grow: 1;
+
+}
+
+.col-half {
+	width: 50%;
+	float: left;
+}
+
+.ascii {
+	white-space: pre;
+	line-height: 14px;
+}
+
+.flippedx {
+	transform: scaleX(-1);
+}
+
+.flippedy {
+	transform: scaleY(-1);
+}
+
+.flippedboth {
+	transform: scaleY(-1) scaleX(-1);
+}
+
+img.inline {
+	float: left;
+	width: 200px;
+	margin-right: 1em;
+	border: 1px solid #4f4e83;
+}
+
+#stickersCanvas {
+	z-index: 0;
+	position: absolute;
+}
+
+.stickers {
+	width: 200px;
+	height: 200px;
+	overflow: visible;
+}
+
+.stickers img {
+	z-index: 0;
+}
+
+.stickers a {
+	height: 32px;
+	width: 32px;
+	text-indent: -999px;
+	visibility: hidden;
+	color: #000;
+	text-decoration: none;
+	font-size: 1.2em;
+	background-color: #df5e88;
+	overflow: hidden;
+	border-radius: 12px;
+	float: left;
+}
+
+.stickers:hover a {
+	visibility: visible;
+}
+
+.stickers .rotate {
+	display: block;
+	background: url('../img/icons/icon_rotateLeft.png') no-repeat #df5e88 center;
+}
+
+.stickers .resize {
+	display: block;
+	background: url('../img/icons/icon_resize.png') no-repeat #df5e88 center;
+}
+
+.stickers .close {
+	display: block;
+	background: url('../img/icons/icon_close.png') no-repeat #df5e88 center;
+}
+
+/* ======== Specific window styles here ======== */
+
+#textpad {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+#textpad_wa {
+	width: calc(100% - 1em);
+	flex-grow: 1;
+}
+
+/* .uiButtons {
+flex-direction: column;	
+} */
+
+#computerWindow {
+	display: flex;
+	flex-grow: 1;
+
+
+	
+}
+
+#settings .bgPicker img {
+	width: 100px;
+	height: 100px;
+	border: 1px solid #000;
+}
+
+#welcomeTXT {
+	display: flex;
+	flex-grow: 1;
+}
+
+#welcomeTXTcontent {
+	flex-grow: 1;
+	overflow-y: auto;
+}
+

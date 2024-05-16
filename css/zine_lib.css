@@ -1,0 +1,104 @@
+:root {
+    --color-bg: #69f7be;
+    --color-text-main: #000000;
+    --color-primary: #ffff00;
+    --image-margin: 3rem;
+    --font-family: "Fixedsys Excelsior", monospace;
+    --font-family-header: "Fixedsys Excelsior", monospace;
+}
+
+@font-face {
+    font-family: "Fixedsys Excelsior", monospace;
+    src: url("https://cdn.glitch.global/5278e3d1-d389-4625-9c07-87bc29c965fe/fsex300-webfont.woff?v=1707765607001") format("woff");
+
+}
+
+body {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: "Fixedsys Excelsior", monospace;
+    object-fit: contain;
+    justify-content: center;
+}
+
+
+
+
+#button-box,
+#search-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 20vw;
+    padding: 10px;
+    flex: 1 0 150px;
+    width: 20vw;
+    height: 5vh;
+    padding-left: 25px;
+    text-align: justify;
+    align-self: center;
+
+}
+
+#searchButton {
+    margin: 10px;
+
+}
+
+#subjectButton {
+    flex: 1 0 150px;
+    width: 20vw;
+    height: 5vh;
+    padding-left: 25px;
+    text-align: justify;
+}
+
+#items {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: #ededed;
+    border: 0.5px dotted grey;
+    color: green;
+    justify-content: center;
+    width: fit-content;
+
+}
+
+.item {
+   
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: pink solid 5px;
+    background-color: #ededed;
+    color: green;
+    margin: 20px;
+    padding: 10px;
+    width: 35vw;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.zine-content {
+    object-fit: contain;
+}
+a:hover {
+    background-color: lightpink;
+    color: white;
+  }
+
+/* .cool-links {
+    flex: 1 0 150px;
+    width: 20vw;
+    height: 5vh;
+    padding-left: 25px;
+    text-align: justify;
+    } */
