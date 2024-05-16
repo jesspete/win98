@@ -43,6 +43,7 @@ html .ui-button.ui-state-disabled:active {
 .ui-widget textarea,
 .ui-widget button {
 	font-family: "MS Sans Serif", "Segoe UI", sans-serif;
+	flex-grow: 1;
 }
 
 .ui-widget {
@@ -216,8 +217,6 @@ div.content {
 	padding: 1em;
 	flex-grow: 1;
 	overflow-y: auto;
-	flex-direction: column;
-	list-style-type: none;
 }
 
 .window, .content {
@@ -228,9 +227,9 @@ div.content {
 	min-height: 0;
 }
 
-/* .window.off {
+.window.off {
 	display: none;
-} */
+}
 
 div.menuBar {
 	border-bottom: 1px solid #353535;
@@ -239,8 +238,8 @@ div.menuBar {
 	overflow: hidden;
 	box-shadow: inset 1px 1px 0px 0px #f6ab6c, inset -1px -1px 0px 0px #97133e;
 	display: flex;
-	flex-grow: 1;
-	max-height: 8px;
+	flex-grow: 0;
+	height: 8px;
 
 }
 
@@ -695,7 +694,7 @@ img.inline {
 
 /* ======== Specific window styles here ======== */
 
-#textpad {
+#textpad textarea {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: column;
